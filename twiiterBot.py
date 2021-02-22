@@ -79,9 +79,10 @@ while True :
     print('bot is running')
     inch1Value = float(r3.json()['toTokenAmount'])/math.pow(10, int(decimal2Token))
     if inch1Value > float(uniswapValue) :
+        tx = data['transaction']['id']
         timestamp = datetime.datetime.fromtimestamp(int(data['transaction']['timestamp']))
         waktu = timestamp.strftime('%Y-%m-%d %H:%M:%S')
-        status = "The swap transaction were carried out at Uniswap on {} from token {} {} for token {} {}, \n \n if using 1inch protocol you will get {} {} for {} {}.".format(waktu, amountOut, ticker0Symbol, uniswapValue, ticker1Symbol, inch1Value, ticker1Symbol, amountOut, ticker0Symbol)
+        status = "The swap transaction were carried out at Uniswap on {} from token {} {} for token {} {} tx : {}, \n \n if using 1inch protocol you will get {} {} for {} {}.".format(waktu, amountOut, ticker0Symbol, uniswapValue, ticker1Symbol, tx,  inch1Value, ticker1Symbol, amountOut, ticker0Symbol)
         if prevStatus != status :
             api = connect_to_twitter()
             tweet(api, status)
