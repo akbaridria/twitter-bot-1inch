@@ -6,6 +6,8 @@ import math
 import datetime
 from os import environ
 
+#create twitter bot and deploy to heroku
+
 #config twitter credentials
 API_KEY = environ["API_KEY"]
 API_SECRET_KEY = environ["API_SECRET_KEY"]
